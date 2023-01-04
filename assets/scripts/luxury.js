@@ -35,6 +35,8 @@ function addPlayer() {
     newInput.setAttribute('id', 'player' + (numberOfPlayers));
     newInput.setAttribute('class', 'cost');
     newInput.setAttribute('type', 'number');
+    newInput.setAttribute('min', '0');
+    newInput.setAttribute('max', '9999999999');
     newInput.setAttribute('oninput', 'getValues()');
     // The input is appended to the fieldset
     newFieldset.appendChild(newInput);
