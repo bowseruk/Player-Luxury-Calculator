@@ -11,7 +11,7 @@ This project was created using HTML, CSS and Javascript to make a Portfolio Page
   * The team's spending limit is $40,000,000.
   * The tax rate is 18%. Note that the 18% luxury tax is only paid on the the amount of salary OVER the team's spending limit. For example, if a team's payroll is $55,000,000, they only pay luxury tax on $15,000,000.
 * Receive input from a user in the browser.
-* Try andhold a list of players in one variable.
+* Try and hold a list of players in one variable.
 
 The page in this repo is the result.
 
