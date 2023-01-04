@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Player Tax Calculator</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align:center;">Luxury Player Tax Calculator</h1>
+    </header>
+    <main>
+        <h2>Explanation</h2>
+        <p>The luxury player tax is charged on any spending on players over the tax floor. All spending above the tax
+            floor is taxed at the tax rate. The quantity of the spending below the floor is not taxed.</p>
+        <h2>Using This Page</h2>
+        <p>Add or remove the player count to the number required. The minimum number of players is 1.</p>
+        <p>When the data is input, the total cost of players will automatically calculate. The required tax will also be
+            calculated. The tax floor and tax rate can be adjusted if required.</p>
+        <noscript>
+            <p class=".invalid">This page does not work without javascript.</p>
+        </noscript>
+        <h2>Form</h2>
+        <form id="playersForm">
+            <!-- The format of the fieldsets is very important to the javascript -->
+            <fieldset id='player1Fieldset'>
+                <!-- This format is important for the javascript -->
+                <legend id='player1Legend'>Player 1 cost (£)</legend>
+                <input id="player1" class="cost" type="number" oninput="getValues()" />
+            </fieldset>
+            <fieldset id='player2Fieldset'>
+                <legend id='player2Legend'>Player 2 cost (£)</legend>
+                <input id="player2" class="cost" type="number" oninput="getValues()" / />
+            </fieldset>
+            <fieldset id='player3Fieldset'>
+                <legend id='player3Legend'>Player 3 cost (£)</legend>
+                <input id="player3" class="cost" type="number" oninput="getValues()" />
+            </fieldset>
+            <fieldset id="playersFieldset">
+                <legend id="playersLegend">Players</legend>
+                <Button type="button" onclick="addPlayer()">Add</Button><Button type="button"
+                    onclick="removePlayer()">Remove</Button>
+            </fieldset>
+            <fieldset>
+                <legend>Total player cost (£)</legend>
+                <input id="playerTotal" class="cost" type="number" disabled="true">
+            </fieldset>
+            <fieldset>
+                <legend>Tax Floor (£)</legend>
+                <input id="taxFloor" class="cost" type="number" value="40000000" oninput="getValues()" />
+            </fieldset>
+            <fieldset>
+                <legend>Tax Rate (%)</legend>
+                <input id="taxRate" class="percent" type="number" value="18" oninput="getValues()" />
+            </fieldset>
+            <fieldset>
+                <legend>Tax Cost (£)</legend>
+                <input id="taxCost" class="cost" type="number" disabled="true">
+            </fieldset>
+        </form>
+    </main>
+    <script src="assets/scripts/luxury.js"></script>
+
+</body>
+
+</html>

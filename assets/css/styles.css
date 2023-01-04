@@ -1,0 +1,58 @@
+/* Set defaults */
+html {
+    width: 100%;
+}
+/* Set page common values */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    --banner-color: blue;
+    --banner-text-color: white;
+    --main-background-color: grey;
+    background-color: var(--main-background-color);
+}
+
+/* The header for the page */
+header {
+    background-color: var(--banner-color);
+    color: var(--banner-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+p {
+    width: 90%;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: none;
+    padding: none;
+    margin: none;
+}
+
+.valid {
+    background-color: greenyellow;
+}
+
+.invalid {
+    background-color: #ff0000;
+}
+
+.cost {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='18px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>£</text></svg>");
+    background-repeat: no-repeat;
+    padding-left: 16px;
+}
+
+.percent {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='18px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>%</text></svg>");
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-left: 16px;
+    padding-right: 16px;
+}
