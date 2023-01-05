@@ -24,13 +24,13 @@ function addPlayer() {
     const newList = document.createElement('li');
     newList.setAttribute('id', 'player' + (numberOfPlayers) + 'List');
     newList.setAttribute('class', 'list-group-item  no-error');
-        // Create Label
-        const newErrorLabel = document.createElement('label');
-        newErrorLabel.setAttribute('id', 'player' + (numberOfPlayers) + 'ErrorLabel');
-        const newErrorLabelText = document.createTextNode('A numeric value greater than 0 is required.');
-        // The text is appended to the input label
-        newErrorLabel.appendChild(newErrorLabelText);
-        newList.appendChild(newErrorLabel);
+    // Create Label
+    const newErrorLabel = document.createElement('label');
+    newErrorLabel.setAttribute('id', 'player' + (numberOfPlayers) + 'ErrorLabel');
+    const newErrorLabelText = document.createTextNode('A numeric value greater than 0 is required.');
+    // The text is appended to the input label
+    newErrorLabel.appendChild(newErrorLabelText);
+    newList.appendChild(newErrorLabel);
     // A new fieldset is added and the properties added
     const newFieldset = document.createElement('fieldset');
     newFieldset.setAttribute('class', 'input-group mb-3');
@@ -86,7 +86,22 @@ function getValues() {
     // Puts the array into a cost function
     var playerTotal = calcTotalCost(players);
     document.getElementById("playerTotal").value = playerTotal;
+    // Check for a positive number
     var taxFloor = parseInt(document.getElementById("taxFloor").value);
+    if ( typeof taxFloor === "number" && ! (taxFloor < 0)) {
+        document.getElementById('taxFloorList').setAttribute('class', 'list-group-item no-error');
+    } else {
+        taxFloor = 0;
+        document.getElementById('taxFloorList').setAttribute('class', 'list-group-item list-group-item-danger error');
+    }
+    var taxRate = parseInt(document.getElementById("taxRate").value);
+    if ( typeof taxRate === "number" && ! (taxRate < 0)) {
+        taxRate / 100;
+        document.getElementById('taxRateList').setAttribute('class', 'list-group-item no-error');
+    } else {
+        taxRate = 0;
+        document.getElementById('taxRateList').setAttribute('class', 'list-group-item list-group-item-danger error');
+    }
     var taxRate = parseInt(document.getElementById("taxRate").value) / 100;
     var taxCost = calcTaxCost(playerTotal, taxFloor, taxRate);
     document.getElementById("taxCost").value = taxCost;

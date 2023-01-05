@@ -65,10 +65,12 @@
                     <div class="card-body">
                         <ul id="playerList" class="list-group list-group-flush">
                             <li id="player1List" class="list-group-item no-error">
-                                <label id="player1ErrorLabel" class="">A numeric value greater than 0 is required.</label>
+                                <!-- Error label visibility is controlled by class of list object -->
+                                <label id="player1ErrorLabel" class="display-8">A numeric value greater than 0 is required.</label>
                                 <fieldset id='player1Fieldset' class="input-group mb-3">
                                     <!-- This format is important for the javascript -->
                                     <span class="input-group-text">£</span>
+                                    <!-- This part is for the label to float in and out of place -->
                                     <div class="form-floating">
                                         <input id="player1" class="form-control" type="number" min="0" max="9999999999"
                                             placeholder="Cost of Player 1" oninput="getValues()" />
@@ -79,11 +81,13 @@
                                 </fieldset>
                             </li>
                             <li id="player2List" class="list-group-item no-error">
-                                <label id="player2ErrorLabel" class="">A numeric value greater than 0 is required.</label>
+                                <!-- Error label visibility is controlled by class of list object -->
+                                <label id="player2ErrorLabel" class="display-8">A numeric value greater than 0 is required.</label>
                                 <fieldset id='player2Fieldset' class="input-group mb-3">
                                     <!-- This format is important for the javascript -->
                                     <span class="input-group-text">£</span>
-                                    <div class="form-floating">
+                                    <!-- This part is for the label to float in and out of place -->
+                                    <div class="form-floating">  
                                         <input id="player2" class="form-control" type="number" min="0" max="9999999999"
                                             placeholder="Cost of Player 2" oninput="getValues()" />
                                         <label for="player2">Cost of Player 2</label>
@@ -93,10 +97,12 @@
                                 </fieldset>
                             </li>
                             <li id="player3List" class="list-group-item no-error">
-                                <label id="player3ErrorLabel" class="">A numeric value greater than 0 is required.</label>
+                                <!-- Error label visibility is controlled by class of list object -->
+                                <label id="player3ErrorLabel" class="display-8">A numeric value greater than 0 is required.</label>
                                 <fieldset id='player3Fieldset' class="input-group mb-3">
                                     <!-- This format is important for the javascript -->
                                     <span class="input-group-text">£</span>
+                                    <!-- This part is for the label to float in and out of place -->
                                     <div class="form-floating">
                                         <input id="player3" class="form-control" type="number" min="0" max="9999999999"
                                             placeholder="Cost of Player 3" oninput="getValues()" />
@@ -133,7 +139,9 @@
                     <div class="card-header">Tax Values</div>
                     <div class="card-body">
                         <ul id="taxList" class="list-group list-group-flush">
-                            <li id="taxFloorList" class="list-group-item">
+                            <li id="taxFloorList" class="list-group-item no-error">
+                                <!-- Error label visibility is controlled by class of list object -->
+                                <label id="taxFloorErrorLabel" class="display-8">A numeric value of 0 or greater is required.</label>
                                 <fieldset class="input-group mb-3">
                                     <!-- This format is important for the javascript -->
                                     <span class="input-group-text">£</span>
@@ -145,8 +153,11 @@
                                     <span class="input-group-text">.00</span>
                                 </fieldset>
                             </li>
-                            <li id="taxRateList" class="list-group-item">
+                            <li id="taxRateList" class="list-group-item no-error">
+                                <!-- Error label visibility is controlled by class of list object -->
+                                <label id="taxRateErrorLabel" class="display-8">A numeric value of 0 or greater is required.</label>
                                 <fieldset class="input-group mb-3">
+                                    <!-- This format is important for the javascript -->
                                     <div class="form-floating">
                                         <input id="taxRate" class="form-control" type="number" min="0" max="9999"
                                             value="18" placeholder="Tax Rate" oninput="getValues()" />
