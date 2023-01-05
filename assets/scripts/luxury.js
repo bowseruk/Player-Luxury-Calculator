@@ -23,7 +23,14 @@ function addPlayer() {
     // A new list is created
     const newList = document.createElement('li');
     newList.setAttribute('id', 'player' + (numberOfPlayers) + 'List');
-    newList.setAttribute('class', 'list-group-item');
+    newList.setAttribute('class', 'list-group-item  no-error');
+        // Create Label
+        const newErrorLabel = document.createElement('label');
+        newErrorLabel.setAttribute('id', 'player' + (numberOfPlayers) + 'ErrorLabel');
+        const newErrorLabelText = document.createTextNode('A numeric value greater than 0 is required.');
+        // The text is appended to the input label
+        newErrorLabel.appendChild(newErrorLabelText);
+        newList.appendChild(newErrorLabel);
     // A new fieldset is added and the properties added
     const newFieldset = document.createElement('fieldset');
     newFieldset.setAttribute('class', 'input-group mb-3');
@@ -94,9 +101,9 @@ function calcTotalCost(players) {
         if (typeof players[i] == "number" && players[i] > 0) {
             // If it is valid, add it to the running total
             playerTotal += players[i];
-            document.getElementById("player" + (i + 1) + 'List').setAttribute('class', 'list-group-item')
+            document.getElementById("player" + (i + 1) + 'List').setAttribute('class', 'list-group-item no-error')
         } else {
-            document.getElementById("player" + (i + 1) + 'List').setAttribute('class', 'list-group-item list-group-item-danger')
+            document.getElementById("player" + (i + 1) + 'List').setAttribute('class', 'list-group-item list-group-item-danger error ')
         };
     };
     // return the running total
