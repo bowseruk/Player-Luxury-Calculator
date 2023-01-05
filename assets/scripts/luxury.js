@@ -88,21 +88,20 @@ function getValues() {
     document.getElementById("playerTotal").value = playerTotal;
     // Check for a positive number
     var taxFloor = parseInt(document.getElementById("taxFloor").value);
-    if ( typeof taxFloor === "number" && ! (taxFloor < 0)) {
-        document.getElementById('taxFloorList').setAttribute('class', 'list-group-item no-error');
-    } else {
+    if (typeof taxFloor !== "number" || (taxFloor < 0) || isNaN(taxFloor)) {
         taxFloor = 0;
         document.getElementById('taxFloorList').setAttribute('class', 'list-group-item list-group-item-danger error');
+    } else {
+        document.getElementById('taxFloorList').setAttribute('class', 'list-group-item no-error');
     }
     var taxRate = parseInt(document.getElementById("taxRate").value);
-    if ( typeof taxRate === "number" && ! (taxRate < 0)) {
-        taxRate / 100;
-        document.getElementById('taxRateList').setAttribute('class', 'list-group-item no-error');
-    } else {
+    if (typeof taxRate !== "number" || (taxRate < 0) || isNaN(taxRate)) {
         taxRate = 0;
         document.getElementById('taxRateList').setAttribute('class', 'list-group-item list-group-item-danger error');
+    } else {
+        taxRate / 100;
+        document.getElementById('taxRateList').setAttribute('class', 'list-group-item no-error');
     }
-    var taxRate = parseInt(document.getElementById("taxRate").value) / 100;
     var taxCost = calcTaxCost(playerTotal, taxFloor, taxRate);
     document.getElementById("taxCost").value = taxCost;
 };
@@ -127,7 +126,7 @@ function calcTotalCost(players) {
 
 function calcTaxCost(playerTotal, taxFloor, taxRate) {
     // Check the values are all numbers
-    if (typeof playerTotal !== "number" && typeof taxFloor !== "number" && typeof taxRate !== "number") {
+    if (typeof playerTotal !== "number" || typeof taxFloor !== "number" || typeof taxRate !== "number") {
         // Return 0 if they are not all numbers
         return 0;
     };
