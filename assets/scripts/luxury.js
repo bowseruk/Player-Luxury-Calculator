@@ -99,7 +99,7 @@ function getValues() {
         taxRate = 0;
         document.getElementById('taxRateList').setAttribute('class', 'list-group-item list-group-item-danger error');
     } else {
-        taxRate / 100;
+        taxRate = taxRate / 100;
         document.getElementById('taxRateList').setAttribute('class', 'list-group-item no-error');
     }
     var taxCost = calcTaxCost(playerTotal, taxFloor, taxRate);
