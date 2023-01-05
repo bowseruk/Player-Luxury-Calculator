@@ -42,19 +42,3 @@ fieldset {
 .invalid {
     background-color: #ff0000;
 }
-
-.cost {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='18px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>£</text></svg>");
-    background-repeat: no-repeat;
-    background-position: left center !important;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-.percent {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='18px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>%</text></svg>");
-    background-repeat: no-repeat;
-    background-position: right center !important;
-    padding-left: 16px;
-    padding-right: 16px;
-}

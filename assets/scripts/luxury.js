@@ -5,9 +5,9 @@ function removePlayer() {
     // There is required to always be at least one player
     if (numberOfPlayers > 1) {
         // Select all elements 
-        const fieldset = document.getElementById(('player' + (numberOfPlayers) + 'Fieldset'));
+        const listItem = document.getElementById(('player' + (numberOfPlayers) + 'List'));
         // Remove the element
-        fieldset.remove();
+        listItem.remove();
         // Changes the global variable to reflect one less player
         numberOfPlayers--;
         getValues()
@@ -16,32 +16,49 @@ function removePlayer() {
 // This function adds input for a player
 function addPlayer() {
     // This finds the form the fieldset will be inserted into, and the fieldset it will be inserted before
-    const pageForm = document.getElementById('playersForm');
-    const endFieldset = document.getElementById('playersFieldset');
+    const parentElement = document.getElementById('playerList');
+    // const endElement = document.getElementById('playerTotalList');
     // The number of players is incremented to reflect an added player
     numberOfPlayers++;
+    // A new list is created
+    const newList = document.createElement('li');
+    newList.setAttribute('id', 'player' + (numberOfPlayers) + 'List');
+    newList.setAttribute('class', 'list-group-item');
     // A new fieldset is added and the properties added
     const newFieldset = document.createElement('fieldset');
     newFieldset.setAttribute('id', 'player' + (numberOfPlayers) + 'Fieldset');
+    newFieldset.setAttribute('class', 'input-group mb-3');
+    newList.appendChild(newFieldset);
     // A legend and text are created, and attributes added
     const newLegend = document.createElement('legend');
     const newLegendText = document.createTextNode("Player " + numberOfPlayers + " cost (£)");
-    newLegend.setAttribute('id', 'player' + (numberOfPlayers) + 'Legend');
     // The text is appended to the Legend
     newLegend.appendChild(newLegendText);
     newFieldset.appendChild(newLegend);
+    // Prefix span
+    const newPrefix = document.createElement('span');
+    newPrefix.setAttribute('class', 'input-group-text');
+    const newPrefixText = document.createTextNode('£');
+    newPrefix.appendChild(newPrefixText);
+    newFieldset.appendChild(newPrefix);
     // A new input is created and attributes set
     const newInput = document.createElement('input');
     newInput.setAttribute('id', 'player' + (numberOfPlayers));
-    newInput.setAttribute('class', 'cost');
+    newInput.setAttribute('class', 'form-control');
     newInput.setAttribute('type', 'number');
     newInput.setAttribute('min', '0');
     newInput.setAttribute('max', '9999999999');
     newInput.setAttribute('oninput', 'getValues()');
     // The input is appended to the fieldset
     newFieldset.appendChild(newInput);
-    // The fieldset is added to the form before the endFieldset
-    pageForm.insertBefore(newFieldset, endFieldset);
+    // Suffix span
+    const newSuffix = document.createElement('span');
+    newSuffix.setAttribute('class', 'input-group-text');
+    const newSuffixText = document.createTextNode('.00');
+    newSuffix.appendChild(newSuffixText);
+    newFieldset.appendChild(newSuffix);
+    // The List is added to the list
+    parentElement.appendChild(newList);
     getValues()
 };
 
@@ -72,9 +89,9 @@ function calcTotalCost(players) {
         if (typeof players[i] == "number" && players[i] > 0) {
             // If it is valid, add it to the running total
             playerTotal += players[i];
-            document.getElementById("player" + (i + 1) + 'Fieldset').setAttribute('class', 'valid')
+            document.getElementById("player" + (i + 1) + 'Fieldset').setAttribute('class', 'valid input-group mb-3')
         } else {
-            document.getElementById("player" + (i + 1) + 'Fieldset').setAttribute('class', 'invalid')
+            document.getElementById("player" + (i + 1) + 'Fieldset').setAttribute('class', 'invalid input-group mb-3')
         };
     };
     // return the running total
