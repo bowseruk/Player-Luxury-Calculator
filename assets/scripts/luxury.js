@@ -17,7 +17,7 @@ function removePlayer() {
 function addPlayer() {
     // This finds the form the fieldset will be inserted into, and the fieldset it will be inserted before
     const parentElement = document.getElementById('playerList');
-    // const endElement = document.getElementById('playerTotalList');
+    const endElement = document.getElementById('playerButtonList');
     // The number of players is incremented to reflect an added player
     numberOfPlayers++;
     // A new list is created
@@ -26,21 +26,18 @@ function addPlayer() {
     newList.setAttribute('class', 'list-group-item');
     // A new fieldset is added and the properties added
     const newFieldset = document.createElement('fieldset');
-    newFieldset.setAttribute('id', 'player' + (numberOfPlayers) + 'Fieldset');
     newFieldset.setAttribute('class', 'input-group mb-3');
     newList.appendChild(newFieldset);
-    // A legend and text are created, and attributes added
-    const newLegend = document.createElement('legend');
-    const newLegendText = document.createTextNode("Player " + numberOfPlayers + " cost");
-    // The text is appended to the Legend
-    newLegend.appendChild(newLegendText);
-    newFieldset.appendChild(newLegend);
     // Prefix span
     const newPrefix = document.createElement('span');
     newPrefix.setAttribute('class', 'input-group-text');
     const newPrefixText = document.createTextNode('£');
     newPrefix.appendChild(newPrefixText);
     newFieldset.appendChild(newPrefix);
+    // Create new form-floating div
+    const newFloatDiv = document.createElement('div');
+    newFloatDiv.setAttribute('class', 'form-floating');
+    newFieldset.appendChild(newFloatDiv);
     // A new input is created and attributes set
     const newInput = document.createElement('input');
     newInput.setAttribute('id', 'player' + (numberOfPlayers));
@@ -48,9 +45,17 @@ function addPlayer() {
     newInput.setAttribute('type', 'number');
     newInput.setAttribute('min', '0');
     newInput.setAttribute('max', '9999999999');
+    newInput.setAttribute('placeholder', 'Cost of Player ' + (numberOfPlayers));
     newInput.setAttribute('oninput', 'getValues()');
     // The input is appended to the fieldset
-    newFieldset.appendChild(newInput);
+    newFloatDiv.appendChild(newInput);
+    // Create Label
+    const newInputLabel = document.createElement('label');
+    newInputLabel.setAttribute('for', 'player' + (numberOfPlayers));
+    const newInputLabelText = document.createTextNode('Cost of Player ' + (numberOfPlayers));
+    // The text is appended to the input label
+    newInputLabel.appendChild(newInputLabelText);
+    newFloatDiv.appendChild(newInputLabel);
     // Suffix span
     const newSuffix = document.createElement('span');
     newSuffix.setAttribute('class', 'input-group-text');
@@ -58,7 +63,7 @@ function addPlayer() {
     newSuffix.appendChild(newSuffixText);
     newFieldset.appendChild(newSuffix);
     // The List is added to the list
-    parentElement.appendChild(newList);
+    parentElement.insertBefore(newList, endElement);
     getValues()
 };
 
