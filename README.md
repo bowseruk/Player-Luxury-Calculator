@@ -2,7 +2,7 @@
 
 ## Description 
 
-This project was created using HTML, CSS and Javascript to make a Portfolio Page. The project had the following requirements:
+This project was created using HTML, CSS, Boostrap v5 and Javascript to make a Tax Calculator. The project had the following requirements:
 
 * As a developer, I want to write an algorithm that will calculate how much luxury tax a hypothetical sports team will pay to sign three players.
 * Store salaries for each player.
@@ -21,7 +21,7 @@ The site does not require installation steps.
 
 ## Usage 
 
-The website can be viewed at [https://bowseruk.github.io/Player-Luxury-Calculator/](https://bowseruk.github.io/Player-Luxury-Calculator/) with Google Chrome. The source can be viewed in Chrome by right clicking and selecting inspect.
+The website can be viewed at [https://bowseruk.github.io/player-luxury-calculator/](https://bowseruk.github.io/player-luxury-calculator/) with Google Chrome. The source can be viewed in Chrome by right clicking and selecting inspect.
 
 ![Screenshot of the Webpage](assets/images/screenshot.png)
 
@@ -32,6 +32,11 @@ This site was based on a project by edX Boot Camps LLC.
 [W3School](https://www.w3schools.com/) was used as a reference for elements to use and good practice.
 
 The changes were checked with [W3C Validator](https://validator.w3.org/).
+
+The docs for [Bootstrap v5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) where heavily used.
+
+[Stack Overflow](https://stackoverflow.com/) always seems to have the answer to a problem that occurs.
+
 
 ## License
 

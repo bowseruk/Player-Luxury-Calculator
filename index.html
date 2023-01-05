@@ -15,7 +15,7 @@
 <body>
     <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Luxury Tax Calculator</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -37,16 +37,17 @@
             </div>
         </div>
     </nav>
-    <header>
-        <h1 style="text-align:center;">Luxury Player Tax Calculator</h1>
-    </header>
+
     <main>
-        <article id="aboutTheTax">
-            <h2>Explanation</h2>
+        <header class="container-fluid bg-light p-4">
+            <h1 class="display-4">Luxury Player Tax Calculator</h1>
+        </header>
+        <article id="aboutTheTax" class="container-fluid bg-light p-4">
+            <h2 class="display-6">Explanation</h2>
             <p>The luxury player tax is charged on any spending on players over the tax floor. All spending above the
                 tax
                 floor is taxed at the tax rate. The quantity of the spending below the floor is not taxed.</p>
-            <h2>Using This Page</h2>
+            <h2 class="display-6">Using This Page</h2>
             <p>Add or remove the player count to the number required. The minimum number of players is 1.</p>
             <p>When the data is input, the total cost of players will automatically calculate. The required tax will
                 also be
@@ -55,7 +56,8 @@
                 <p class=".invalid">This page does not work without javascript.</p>
             </noscript>
         </article>
-        <h2>Form</h2>
+        <section class="container-fluid bg-light p-4">
+        <h2 class="display-6">Calculator</h2>
         <form id="playersForm" class="row">
             <div class="col-sm-6 mb-3 mb-sm-0">
                 <div id="playersSalaries" class="card text-center">
@@ -166,9 +168,10 @@
                 </div>
             </div>
         </form>
+    </section>
     </main>
     <footer>
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar navbar-dark bg-primary">
             <div class="container-fluid">
                 <span class="navbar-brand mb-0 h1">&copy; Copyright Adam Bolsover 2022</span>
             </div>

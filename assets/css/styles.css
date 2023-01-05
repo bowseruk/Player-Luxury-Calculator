@@ -1,8 +1,7 @@
-
-.valid {
-    background-color: greenyellow;
+h1 {
+    margin: 0;
 }
 
-.invalid {
-    background-color: #ff0000;
+h2 {
+    padding-bottom: 20px;
 }
