@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Player Tax Calculator</title>
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Custom css -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -14,116 +15,156 @@
 <body>
     <!-- Navbar -->
     <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Luxury Tax Calculator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#aboutTheTax">About the tax</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#playersSalaries">Player Salaries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#taxValues">Tax</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <h1 style="text-align:center;">Luxury Player Tax Calculator</h1>
     </header>
     <main>
-        <h2>Explanation</h2>
-        <p>The luxury player tax is charged on any spending on players over the tax floor. All spending above the tax
-            floor is taxed at the tax rate. The quantity of the spending below the floor is not taxed.</p>
-        <h2>Using This Page</h2>
-        <p>Add or remove the player count to the number required. The minimum number of players is 1.</p>
-        <p>When the data is input, the total cost of players will automatically calculate. The required tax will also be
-            calculated. The tax floor and tax rate can be adjusted if required.</p>
-        <noscript>
-            <p class=".invalid">This page does not work without javascript.</p>
-        </noscript>
+        <article id="aboutTheTax">
+            <h2>Explanation</h2>
+            <p>The luxury player tax is charged on any spending on players over the tax floor. All spending above the
+                tax
+                floor is taxed at the tax rate. The quantity of the spending below the floor is not taxed.</p>
+            <h2>Using This Page</h2>
+            <p>Add or remove the player count to the number required. The minimum number of players is 1.</p>
+            <p>When the data is input, the total cost of players will automatically calculate. The required tax will
+                also be
+                calculated. The tax floor and tax rate can be adjusted if required.</p>
+            <noscript>
+                <p class=".invalid">This page does not work without javascript.</p>
+            </noscript>
+        </article>
         <h2>Form</h2>
-        <form id="playersForm">
-            <div id="playersSalaries" class="card text-center">
-                <div class="card-header">Player Salaries</div>
-                <div class="card-body">
-                    <ul id="playerList" class="list-group list-group-flush">
-                        <li id="player1List" class="list-group-item">
-                            <fieldset id='player1Fieldset' class="input-group mb-3">
-                                <!-- This format is important for the javascript -->
-                                <legend>Player 1 cost (£)</legend>
-                                <span class="input-group-text">£</span>
-                                <input id="player1" class="form-control" type="number" min="0" max="9999999999" oninput="getValues()" />
-                                <span class="input-group-text">.00</span>
-                            </fieldset>
-                        </li>
-                        <li id="player2List" class="list-group-item">
-                            <fieldset id='player2Fieldset' class="input-group mb-3">
-                                <!-- This format is important for the javascript -->
-                                <legend>Player 2 cost (£)</legend>
-                                <span class="input-group-text">£</span>
-                                <input id="player2" class="form-control" type="number" min="0" max="9999999999" oninput="getValues()" />
-                                <span class="input-group-text">.00</span>
-                            </fieldset>
-                        </li>
-                        <li id="player3List" class="list-group-item">
-                            <fieldset id='player3Fieldset' class="input-group mb-3">
-                                <!-- This format is important for the javascript -->
-                                <legend>Player 3 cost (£)</legend>
-                                <span class="input-group-text">£</span>
-                                <input id="player3" class="form-control" type="number" min="0" max="9999999999" oninput="getValues()" />
-                                <span class="input-group-text">.00</span>
-                            </fieldset>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <fieldset id="playersFieldset" class="input-group mb-3">
-                                <legend id="playersLegend">Number of Players</legend>
-                                <Button type="button" onclick="addPlayer()">Add</Button><Button type="button"
-                                    onclick="removePlayer()">Remove</Button>
-                            </fieldset>
-                        </li>
-                        <li id="playerTotalList" class="list-group-item">
-                            <fieldset class="input-group mb-3">
-                                <legend>Total player cost (£)</legend>
+        <form id="playersForm" class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div id="playersSalaries" class="card text-center">
+                    <div class="card-header">Player Salaries</div>
+                    <div class="card-body">
+                        <ul id="playerList" class="list-group list-group-flush">
+                            <li id="player1List" class="list-group-item">
+                                <fieldset id='player1Fieldset' class="input-group mb-3">
+                                    <!-- This format is important for the javascript -->
+                                    <legend>Player 1 cost</legend>
                                     <span class="input-group-text">£</span>
-                                    <input id="playerTotal" type="number" class="form-control" aria-label="Amount (to the nearest pound)"  min="0" max="9999999999999" readonly>
+                                    <input id="player1" class="form-control" type="number" min="0" max="9999999999"
+                                        oninput="getValues()" />
                                     <span class="input-group-text">.00</span>
-                            </fieldset>
-                        </li>
-                    </ul>
+                                </fieldset>
+                            </li>
+                            <li id="player2List" class="list-group-item">
+                                <fieldset id='player2Fieldset' class="input-group mb-3">
+                                    <!-- This format is important for the javascript -->
+                                    <legend>Player 2 cost</legend>
+                                    <span class="input-group-text">£</span>
+                                    <input id="player2" class="form-control" type="number" min="0" max="9999999999"
+                                        oninput="getValues()" />
+                                    <span class="input-group-text">.00</span>
+                                </fieldset>
+                            </li>
+                            <li id="player3List" class="list-group-item">
+                                <fieldset id='player3Fieldset' class="input-group mb-3">
+                                    <!-- This format is important for the javascript -->
+                                    <legend>Player 3 cost</legend>
+                                    <span class="input-group-text">£</span>
+                                    <input id="player3" class="form-control" type="number" min="0" max="9999999999"
+                                        oninput="getValues()" />
+                                    <span class="input-group-text">.00</span>
+                                </fieldset>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <fieldset id="playersFieldset" class="input-group mb-3 d-grid gap-2">
+                                    <legend id="playersLegend">Number of Players</legend>
+                                    <Button class="btn btn-success" type="button" onclick="addPlayer()">Add</Button>
+                                    <Button class="btn btn-danger" type="button"
+                                        onclick="removePlayer()">Remove</Button>
+                                </fieldset>
+                            </li>
+                            <li id="playerTotalList" class="list-group-item">
+                                <fieldset class="input-group mb-3">
+                                    <legend>Total player cost (£)</legend>
+                                    <span class="input-group-text">£</span>
+                                    <input id="playerTotal" type="number" class="form-control"
+                                        aria-label="Amount (to the nearest pound)" min="0" max="9999999999999" readonly>
+                                    <span class="input-group-text">.00</span>
+                                </fieldset>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div id="taxValues" class="card text-center">
-                <div class="card-header">Tax Values</div>
-                <div class="card-body">
-                    <ul id="taxList" class="list-group list-group-flush">
-                        <li id="taxFloorList" class="list-group-item">
-                            <fieldset class="input-group mb-3">
-                                <!-- This format is important for the javascript -->
-                                <legend>Tax Floor (£)</legend>
-                                <span class="input-group-text">£</span>
-                                <input id="taxFloor"  class="form-control" type="number" value="40000000" min="0" max="9999999999" oninput="getValues()" />
-                                <span class="input-group-text">.00</span>
-                            </fieldset>
-                        </li>
-                        <li id="taxRateList" class="list-group-item">
-                            <fieldset class="input-group mb-3">
-                                <legend>Tax Rate (%)</legend>
-                                <input id="taxRate" class="form-control" type="number" min="0" max="9999" value="18" oninput="getValues()" />
-                                <span class="input-group-text">%</span>
-                            </fieldset>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <fieldset class="input-group mb-3">
-                        <legend>Tax Cost (£)</legend>
-                        <span class="input-group-text">£</span>
-                        <input id="taxCost"  class="form-control" type="number" min="0" max="9999999999999" readonly>
-                        <span class="input-group-text">.00</span>
-                    </fieldset>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div id="taxValues" class="card text-center">
+                    <div class="card-header">Tax Values</div>
+                    <div class="card-body">
+                        <ul id="taxList" class="list-group list-group-flush">
+                            <li id="taxFloorList" class="list-group-item">
+                                <fieldset class="input-group mb-3">
+                                    <!-- This format is important for the javascript -->
+                                    <legend>Tax Floor (£)</legend>
+                                    <span class="input-group-text">£</span>
+                                    <input id="taxFloor" class="form-control" type="number" value="40000000" min="0"
+                                        max="9999999999" oninput="getValues()" />
+                                    <span class="input-group-text">.00</span>
+                                </fieldset>
+                            </li>
+                            <li id="taxRateList" class="list-group-item">
+                                <fieldset class="input-group mb-3">
+                                    <legend>Tax Rate (%)</legend>
+                                    <input id="taxRate" class="form-control" type="number" min="0" max="9999" value="18"
+                                        oninput="getValues()" />
+                                    <span class="input-group-text">%</span>
+                                </fieldset>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <fieldset class="input-group mb-3">
+                            <legend>Tax Cost (£)</legend>
+                            <span class="input-group-text">£</span>
+                            <input id="taxCost" class="form-control" type="number" min="0" max="9999999999999" readonly>
+                            <span class="input-group-text">.00</span>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
-
-
-
         </form>
     </main>
     <footer>
-
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">&copy; Copyright Adam Bolsover 2022</span>
+            </div>
+        </nav>
     </footer>
     <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
     <!-- My script -->
     <script src="assets/scripts/luxury.js"></script>
 

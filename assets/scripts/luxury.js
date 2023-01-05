@@ -31,7 +31,7 @@ function addPlayer() {
     newList.appendChild(newFieldset);
     // A legend and text are created, and attributes added
     const newLegend = document.createElement('legend');
-    const newLegendText = document.createTextNode("Player " + numberOfPlayers + " cost (£)");
+    const newLegendText = document.createTextNode("Player " + numberOfPlayers + " cost");
     // The text is appended to the Legend
     newLegend.appendChild(newLegendText);
     newFieldset.appendChild(newLegend);
@@ -89,9 +89,9 @@ function calcTotalCost(players) {
         if (typeof players[i] == "number" && players[i] > 0) {
             // If it is valid, add it to the running total
             playerTotal += players[i];
-            document.getElementById("player" + (i + 1) + 'Fieldset').setAttribute('class', 'valid input-group mb-3')
+            document.getElementById("player" + (i + 1) + 'List').setAttribute('class', 'list-group-item')
         } else {
-            document.getElementById("player" + (i + 1) + 'Fieldset').setAttribute('class', 'invalid input-group mb-3')
+            document.getElementById("player" + (i + 1) + 'List').setAttribute('class', 'list-group-item list-group-item-danger')
         };
     };
     // return the running total
