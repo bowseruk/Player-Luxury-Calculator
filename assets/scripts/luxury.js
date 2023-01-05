@@ -115,5 +115,5 @@ function calcTaxCost(playerTotal, taxFloor, taxRate) {
         return 0;
     };
     // Return the value - the floor multiplied by the tax rate
-    return (playerTotal - taxFloor) * taxRate;
+    return Math.ceil((playerTotal - taxFloor) * taxRate);
 };
